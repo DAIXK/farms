@@ -1,1 +1,1 @@
-web: MAIN_ROUTER_ID=7yfUkdwoW2e1HjXy7sTQWgowXWJesTL9NuPKnbMYqMfi MAIN_ROUTER_ADMIN=FLrGtTgoDRMPVDD4nbRsWAzFFM2xdBet2i3Pe78b5DFW ROCKET_PORT=$PORT ROCKET_KEEP_ALIVE=0 ./target/release/solana-farm-rpc  --farm-client-url https://api.mainnet-beta.solana.com --json-rpc-url http://0.0.0.0:$PORT
+web: ./target/release/solana-farm-rpc
