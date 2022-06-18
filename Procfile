@@ -1,1 +1,1 @@
-web: cargo build --release && ./target/release/solana-farm-rpc
+web: ls && ls target && ./target/release/solana-farm-rpc
