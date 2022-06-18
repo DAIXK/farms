@@ -25,7 +25,7 @@ WORKDIR /farm-rpc
 
 COPY ./ .
 
-RUN cargo build --target x86_64-unknown-linux-musl --release
+RUN cargo build --target release
 
 ####################################################################################################
 ## Final image
@@ -39,7 +39,7 @@ COPY --from=builder /etc/group /etc/group
 WORKDIR /farm-rpc
 
 # Copy our build
-COPY --from=builder /farm-rpc/target/x86_64-unknown-linux-musl/release/farm-rpc ./
+COPY --from=builder /farm-rpc/target/release/farm-rpc ./
 
 # Use an unprivileged user.
 USER farm-rpc:farm-rpc
