@@ -1,0 +1,4 @@
+/target
+Cargo.lock
+fund_stats.db
+*.json
