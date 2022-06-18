@@ -27,7 +27,6 @@ jobs:
         run: |
           cargo check
           cargo clippy -- -D warnings
-          cargo test --all
 
       - name: Build Docker image
         run: docker build registry.heroku.com/${{ secrets.HEROKU_APP }}/web:latest
