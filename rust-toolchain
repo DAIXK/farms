@@ -1,1 +1,2 @@
 nightly-2020-10-24
+RUST_CARGO_BUILD_FLAGS="--release"
