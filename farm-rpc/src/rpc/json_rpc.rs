@@ -1,10 +1,7 @@
 //! JSON RPC service
 
 use {
-    crate::{
-        config::Config,
-        fund_stats::{FundStats, FundStatsRecord},
-    },
+    crate::config::Config,
     rocket::{
         fairing::{AdHoc, Fairing, Info, Kind},
         form::{
@@ -1701,29 +1698,6 @@ async fn get_fund_vaults(
         .map_err(|e| NotFound(e.to_string()))?;
 
     Ok(Json(fund_vaults))
-}
-
-/// Returns Fund's historical performance
-#[get("/fund_stats?<fund_name>&<timeframe>&<start_time>&<limit>")]
-async fn get_fund_stats(
-    fund_name: &str,
-    timeframe: &str,
-    start_time: i64,
-    limit: u32,
-    fund_stats: &State<Arc<Mutex<FundStats>>>,
-) -> Result<Json<Vec<FundStatsRecord>>, NotFound<String>> {
-    let timeframe = timeframe
-        .parse()
-        .map_err(|_| NotFound("Invalid timeframe argument".to_string()))?;
-    let fund_stats = fund_stats
-        .inner()
-        .lock()
-        .map_err(|e| NotFound(e.to_string()))?;
-    let data = fund_stats
-        .select(fund_name, timeframe, start_time, limit)
-        .map_err(NotFound)?;
-
-    Ok(Json(data))
 }
 
 /// Returns User's stacked balance
@@ -4842,8 +4816,6 @@ pub async fn stage(config: &Config) -> AdHoc {
         info!("Cluster version: {}", version);
     }
 
-    let fund_stats = Arc::new(Mutex::new(FundStats::new(&config.sqlite_db_path).unwrap()));
-
     let mut git_tokens: GitTokens = GitTokens::new();
     init_db(config, &client_mutex, &mut git_tokens)
         .await
@@ -4853,7 +4825,6 @@ pub async fn stage(config: &Config) -> AdHoc {
         rocket
             .manage(git_tokens)
             .manage(client_mutex)
-            .manage(fund_stats)
             .attach(Cors)
             .attach(AdHoc::on_ignite("JSON RPC Init", init_rpc))
             .mount("/", FileServer::from(relative!("static")))
@@ -4919,7 +4890,6 @@ pub async fn stage(config: &Config) -> AdHoc {
                     get_fund_custodies,
                     get_fund_vault,
                     get_fund_vaults,
-                    get_fund_stats,
                     get_pool_price,
                     get_oracle,
                     get_oracle_price,

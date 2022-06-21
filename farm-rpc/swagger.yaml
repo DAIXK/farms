@@ -786,29 +786,6 @@ paths:
       responses:
         default:
           description: Json object or error string
-  /api/v1/fund_stats:
-    get:
-      description: "Returns Fund's historical performance"
-      parameters:
-        - name: fund_name
-          in: query
-          schema:
-            type: string
-        - name: timeframe
-          in: query
-          schema:
-            type: string
-        - name: start_time
-          in: query
-          schema:
-            type: string
-        - name: limit
-          in: query
-          schema:
-            type: string
-      responses:
-        default:
-          description: Json object or error string
   /api/v1/user_stake_balance:
     get:
       description: "Returns User's stacked balance"

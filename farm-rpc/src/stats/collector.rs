@@ -10,7 +10,6 @@ pub fn collect(
     sqlite_db_path: &str,
     update_interval_sec: u64,
 ) -> Result<(), String> {
-    let db = FundStats::new(sqlite_db_path)?;
     let client = FarmClient::new(farm_client_url);
     let mut last_updates: HashMap<String, i64> = HashMap::new();
 
@@ -31,13 +30,6 @@ pub fn collect(
                         withdrawals_usd: fund_stats.amount_removed_usd,
                     }
                 );
-                db.update(
-                    fund_name,
-                    fund_stats.assets_update_time,
-                    fund_stats.current_assets_usd,
-                    fund_stats.amount_invested_usd,
-                    fund_stats.amount_removed_usd,
-                )?;
                 last_updates.insert(fund_name.clone(), last_update);
             }
         }
