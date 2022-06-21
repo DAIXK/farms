@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/jabur/foton/solana-program-library/farms/target/release/build/typenum-a9819ce6cb449a22/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/Users/jabur/foton/solana-program-library/farms/target/release/build/typenum-a9819ce6cb449a22/out/op.rs
