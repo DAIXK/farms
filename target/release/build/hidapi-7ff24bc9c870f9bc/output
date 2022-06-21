@@ -1,0 +1,44 @@
+TARGET = Some("x86_64-apple-darwin")
+OPT_LEVEL = Some("3")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("false")
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2,sse3,ssse3")
+running: "cc" "-O3" "-ffunction-sections" "-fdata-sections" "-fPIC" "-m64" "-arch" "x86_64" "-I" "etc/hidapi/hidapi" "-Wall" "-Wextra" "-o" "/Users/jabur/foton/solana-program-library/farms/target/release/build/hidapi-7ff24bc9c870f9bc/out/etc/hidapi/mac/hid.o" "-c" "etc/hidapi/mac/hid.c"
+cargo:warning=etc/hidapi/mac/hid.c:795:39: warning: 'kIOMasterPortDefault' is deprecated: first deprecated in macOS 12.0 [-Wdeprecated-declarations]
+cargo:warning=                        return IOServiceGetMatchingService(kIOMasterPortDefault, IORegistryEntryIDMatching(entry_id));
+cargo:warning=                                                           ^~~~~~~~~~~~~~~~~~~~
+cargo:warning=                                                           kIOMainPortDefault
+cargo:warning=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h:123:19: note: 'kIOMasterPortDefault' has been explicitly marked deprecated here
+cargo:warning=const mach_port_t kIOMasterPortDefault
+cargo:warning=                  ^
+cargo:warning=etc/hidapi/mac/hid.c:800:34: warning: 'kIOMasterPortDefault' is deprecated: first deprecated in macOS 12.0 [-Wdeprecated-declarations]
+cargo:warning=                return IORegistryEntryFromPath(kIOMasterPortDefault, path);
+cargo:warning=                                               ^~~~~~~~~~~~~~~~~~~~
+cargo:warning=                                               kIOMainPortDefault
+cargo:warning=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h:123:19: note: 'kIOMasterPortDefault' has been explicitly marked deprecated here
+cargo:warning=const mach_port_t kIOMasterPortDefault
+cargo:warning=                  ^
+cargo:warning=2 warnings generated.
+exit status: 0
+AR_x86_64-apple-darwin = None
+AR_x86_64_apple_darwin = None
+HOST_AR = None
+AR = None
+running: "ar" "cq" "/Users/jabur/foton/solana-program-library/farms/target/release/build/hidapi-7ff24bc9c870f9bc/out/libhidapi.a" "/Users/jabur/foton/solana-program-library/farms/target/release/build/hidapi-7ff24bc9c870f9bc/out/etc/hidapi/mac/hid.o"
+exit status: 0
+running: "ar" "s" "/Users/jabur/foton/solana-program-library/farms/target/release/build/hidapi-7ff24bc9c870f9bc/out/libhidapi.a"
+exit status: 0
+cargo:rustc-link-lib=static=hidapi
+cargo:rustc-link-search=native=/Users/jabur/foton/solana-program-library/farms/target/release/build/hidapi-7ff24bc9c870f9bc/out
+cargo:rustc-link-lib=framework=IOKit
+cargo:rustc-link-lib=framework=CoreFoundation
+cargo:rustc-link-lib=framework=AppKit
