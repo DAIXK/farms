@@ -32,7 +32,7 @@ solana-farm-sdk = "1.1.1"
 solana-farm-client = "1.1.1"
 solana-account-decoder = "1.9.18"
 solana-cli-config = "1.9.18"
-rusqlite = "0.24.2"
+rusqlite = "0.26.0"
 url = "2.2.2"
 
 [[bin]]
