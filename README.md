@@ -4,7 +4,7 @@
 
 Solana Yield Farming is a set of easy-to-use tools and blockchain contracts for yield optimization strategies.
 
-It is powered by Solana blockchain to allow for frequent automatic compounding, staking, and rebalancing
+It is powered by Solana blockchain to allow for frequent automatic compounding, staking, and rebalancin
 
 One of the distinct features of this platform is the On-chain Reference Database. Metadata for all objects: Tokens, Pools, Farms, Vaults, etc., is stored in the blockchain, so clients don't need any state or hard-coded data.
 
