@@ -1,0 +1,11 @@
+/Users/jabur/foton/solana-program-library/farms/target/release/deps/stable_swap_client-2dc446b9001cf3b1.rmeta: /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/lib.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/error.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/fees.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/instruction.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/state.rs
+
+/Users/jabur/foton/solana-program-library/farms/target/release/deps/libstable_swap_client-2dc446b9001cf3b1.rlib: /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/lib.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/error.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/fees.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/instruction.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/state.rs
+
+/Users/jabur/foton/solana-program-library/farms/target/release/deps/stable_swap_client-2dc446b9001cf3b1.d: /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/lib.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/error.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/fees.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/instruction.rs /Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/state.rs
+
+/Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/lib.rs:
+/Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/error.rs:
+/Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/fees.rs:
+/Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/instruction.rs:
+/Users/jabur/.cargo/registry/src/github.com-1ecc6299db9ec823/stable-swap-client-1.8.1/src/state.rs:
