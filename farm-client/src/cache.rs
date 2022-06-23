@@ -16,17 +16,30 @@ pub struct Cache<T> {
 
 impl<T> Default for Cache<T> {
     fn default() -> Self {
-        Self {
-            data: HashMap::<String, T>::new(),
-            last_load: Instant::now() - RELOAD_INTERVAL,
-            counter: 0,
+        let now = Instant::now();
+        let last_load = now.checked_sub(RELOAD_INTERVAL);
+
+        match last_load {
+            Some(x) => Self {
+                data: HashMap::<String, T>::new(),
+                last_load: x,
+                counter: 0,
+            },
+            None => Self {
+                data: HashMap::<String, T>::new(),
+                last_load: now,
+                counter: 0,
+            },
         }
     }
 }
 
 impl<T> Cache<T> {
     pub fn is_stale(&self) -> bool {
-        self.data.is_empty() || Instant::now() - self.last_load >= RELOAD_INTERVAL
+        let now = Instant::now();
+        let compare = self.last_load.duration_since(now);
+
+        self.data.is_empty() || compare >= RELOAD_INTERVAL
     }
 
     pub fn is_empty(&self) -> bool {
@@ -45,7 +58,7 @@ impl<T> Cache<T> {
 
     pub fn reset(&mut self) {
         self.data = HashMap::<String, T>::new();
-        self.last_load = Instant::now() - RELOAD_INTERVAL;
+        self.last_load = Instant::now(); // - RELOAD_INTERVAL;
         self.counter = 0;
     }
 
