@@ -21,7 +21,7 @@ num_enum = "0.5.7"
 
 [dev-dependencies]
 solana-program-test = "1.9.18"
-solana-farm-client = "1.1.1"
+solana-farm-client = {path="../farm-client"}
 solana-sdk = "1.9.18"
 solana-cli-config = "1.9.18"
 solana-logger = "1.9.18"
