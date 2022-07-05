@@ -10,25 +10,14 @@ def main():
     tokens_out = open(sys.argv[2], 'w')
     vault_program = sys.argv[3]
     protocol = sys.argv[4].upper()
+    partner = sys.argv[5]
 
-    p = subprocess.Popen('/Users/jabur/foton/solana-program-library/farms/target/release/solana-farm-client list-all farm',
-                         shell=True,
-                         stdout=subprocess.PIPE)
+    vaults = ["RDM.GKD.SOL-USDC-V5", "RDM.GKD.RAY-SOL-V3", "RDM.GKD.RAY-USDC-V3", "RDM.GKD.RAY-USDT-V3", "RDM.GKD.SOL-USDT-V5", "RDM.GKD.GENE-USDC-V5", "RDM.GKD.RAY-SRM-V5", "RDM.GKD.GENE-RAY-V5","RDM.GKD.ATLAS-USDC-V5","RDM.GKD.ETH-SOL-V5","RDM.GKD.SUSHI-USDC-V5","RDM.GKD.DFL-USDC-V5","RDM.GKD.ETH-USDC-V5","RDM.GKD.STSOL-USDC-V5","RDM.GKD.POLIS-RAY-V5"]
+
     data = '['
-    for line in p.stdout.readlines():
-        if line[:4].decode("utf-8") != protocol + '.':
-            continue
-        farm = line.decode("utf-8").split(':')[0]
-        if len('VT.' + protocol + '.STC.' + farm[4:]) >= 32:
-            raise ValueError("Len exceeded " + farm)
-        print('/Users/jabur/foton/solana-program-library/farms/target/release/solana-farm-ctrl generate Vault ' +
-                              vault_program + ' ' + protocol + '.STC.' +
-                              farm[4:] + ' VT.' + protocol + '.STC.' +
-                              farm[4:])
+    for vault in vaults:
         p2 = subprocess.Popen('/Users/jabur/foton/solana-program-library/farms/target/release/solana-farm-ctrl generate Vault ' +
-                              vault_program + ' ' + protocol + '.STC.' +
-                              farm[4:] + ' VT.' + protocol + '.STC.' +
-                              farm[4:],
+                              vault_program + ' ' + vault + ' VT.' + vault,
                               shell=True,
                               stdout=subprocess.PIPE)
         for log in p2.stdout.readlines():
